@@ -1,6 +1,18 @@
+# Virtual environment
 venv/
+
+# Python
 __pycache__/
 *.pyc
-.history/
+
+# macOS
 .DS_Store
+
+# Generated files
+database.db
+Mental_Health_Report.pdf
 history/history.csv
+
+# IDE
+.vscode/
+.idea/
