@@ -257,9 +257,10 @@ if "prediction" in st.session_state:
 """, unsafe_allow_html=True)
 
         st.metric(
-            "",
-            f"{confidence:.2f}%"
-        )
+    "Confidence",
+    f"{confidence:.2f}%",
+    label_visibility="collapsed"
+)
 
         st.progress(confidence / 100)
 
