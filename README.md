@@ -2,6 +2,13 @@
 
 <p align="center">
 
+# 🌐 Live Demo
+
+🚀 **Try the application online:**
+
+**https://project-pbel-30-mentalhealth.streamlit.app/Home**
+
+
 # AI-Powered Mental Health Assessment & Prediction System
 
 A modern Machine Learning powered web application built with **Python**, **Streamlit**, and **Scikit-learn** for mental health assessment, prediction, analytics, and personalized recommendations.
