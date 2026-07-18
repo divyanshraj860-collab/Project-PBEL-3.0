@@ -1,0 +1,597 @@
+/* =======================================
+   MINDCARE AI v3
+======================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+
+--primary:#6366F1;
+--secondary:#8B5CF6;
+--success:#10B981;
+--danger:#EF4444;
+--warning:#F59E0B;
+
+--bg:#F5F7FB;
+--card:#FFFFFF;
+--text:#111827;
+--sub:#6B7280;
+
+--radius:18px;
+--shadow:0 12px 35px rgba(0,0,0,.08);
+
+}
+
+html,body,[class*="css"]{
+
+font-family:'Inter',sans-serif;
+
+background:var(--bg);
+
+color:var(--text);
+
+}
+
+/* ==========================
+SIDEBAR
+========================== */
+
+[data-testid="stSidebar"]{
+
+background:#ffffff;
+
+border-right:1px solid #ececec;
+
+}
+
+[data-testid="stSidebar"] *{
+
+color:#111827;
+
+}
+
+/* ==========================
+HERO
+========================== */
+
+.hero{
+
+background:linear-gradient(135deg,#6366F1,#8B5CF6);
+
+padding:45px;
+
+border-radius:22px;
+
+color:white;
+
+box-shadow:var(--shadow);
+
+margin-bottom:25px;
+
+animation:fadeUp .8s;
+
+}
+
+.hero h1{
+
+font-size:46px;
+
+font-weight:800;
+
+margin-bottom:15px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+line-height:1.7;
+
+opacity:.95;
+
+}
+
+/* ==========================
+CARDS
+========================== */
+
+.glass{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+border:1px solid #ececec;
+
+transition:.3s;
+
+height:100%;
+
+}
+
+.glass:hover{
+
+transform:translateY(-8px);
+
+}
+
+.feature{
+
+background:white;
+
+padding:20px;
+
+border-radius:18px;
+
+text-align:center;
+
+box-shadow:var(--shadow);
+
+transition:.3s;
+
+height:100%;
+
+}
+
+.feature:hover{
+
+transform:scale(1.03);
+
+}
+
+/* ==========================
+BUTTONS
+========================== */
+
+.stButton>button{
+
+width:100%;
+
+background:linear-gradient(135deg,#6366F1,#8B5CF6);
+
+color:white;
+
+border:none;
+
+border-radius:14px;
+
+padding:14px;
+
+font-weight:700;
+
+font-size:16px;
+
+transition:.3s;
+
+}
+
+.stButton>button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 10px 25px rgba(99,102,241,.35);
+
+}
+
+/* ==========================
+TEXT AREA
+========================== */
+
+textarea{
+
+border-radius:16px!important;
+
+border:2px solid #e5e7eb!important;
+
+padding:15px!important;
+
+font-size:16px!important;
+
+}
+
+/* ==========================
+METRIC
+========================== */
+
+[data-testid="metric-container"]{
+
+background:white;
+
+border-radius:18px;
+
+padding:18px;
+
+box-shadow:var(--shadow);
+
+border:1px solid #ececec;
+
+}
+
+/* ==========================
+DATAFRAME
+========================== */
+
+[data-testid="stDataFrame"]{
+
+border-radius:18px;
+
+overflow:hidden;
+
+}
+
+/* ==========================
+PROGRESS
+========================== */
+
+.stProgress>div>div{
+
+background:linear-gradient(90deg,#6366F1,#8B5CF6);
+
+}
+/* =======================================
+ANIMATIONS
+======================================= */
+
+@keyframes fadeUp{
+
+0%{
+opacity:0;
+transform:translateY(30px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0px);
+}
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.hero{
+
+animation:fadeUp .8s ease;
+
+}
+
+.glass{
+
+animation:fadeUp .7s ease;
+
+}
+
+.feature{
+
+animation:fadeUp .9s ease;
+
+}
+
+/* =======================================
+HEADINGS
+======================================= */
+
+h1,h2,h3,h4{
+
+font-weight:700;
+
+color:#111827;
+
+}
+
+h1{
+
+letter-spacing:-1px;
+
+}
+
+p{
+
+color:#4B5563;
+
+line-height:1.7;
+
+}
+
+/* =======================================
+ALERTS
+======================================= */
+
+.stSuccess{
+
+border-radius:15px;
+
+}
+
+.stInfo{
+
+border-radius:15px;
+
+}
+
+.stWarning{
+
+border-radius:15px;
+
+}
+
+.stError{
+
+border-radius:15px;
+
+}
+
+/* =======================================
+INPUTS
+======================================= */
+
+.stTextInput input{
+
+border-radius:12px!important;
+
+border:2px solid #E5E7EB!important;
+
+}
+
+.stSelectbox{
+
+border-radius:12px;
+
+}
+
+textarea:focus{
+
+border:2px solid #6366F1!important;
+
+box-shadow:0 0 12px rgba(99,102,241,.25)!important;
+
+}
+
+/* =======================================
+DOWNLOAD BUTTON
+======================================= */
+
+.stDownloadButton button{
+
+background:linear-gradient(135deg,#10B981,#059669);
+
+color:white;
+
+border:none;
+
+border-radius:14px;
+
+padding:14px;
+
+font-weight:700;
+
+transition:.3s;
+
+}
+
+.stDownloadButton button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 10px 25px rgba(16,185,129,.35);
+
+}
+
+/* =======================================
+PLOTLY
+======================================= */
+
+.js-plotly-plot{
+
+background:white;
+
+border-radius:18px;
+
+padding:10px;
+
+box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+}
+
+/* =======================================
+TABLES
+======================================= */
+
+table{
+
+border-radius:15px;
+
+overflow:hidden;
+
+}
+
+thead tr{
+
+background:#6366F1;
+
+color:white;
+
+}
+
+tbody tr:nth-child(even){
+
+background:#F8FAFC;
+
+}
+
+/* =======================================
+SCROLLBAR
+======================================= */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+height:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#F3F4F6;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#6366F1;
+
+border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#4F46E5;
+
+}
+
+/* =======================================
+FOOTER
+======================================= */
+
+footer{
+
+visibility:hidden;
+
+}
+
+footer:after{
+
+content:"MindCare AI © 2026";
+
+visibility:visible;
+
+display:block;
+
+text-align:center;
+
+padding:20px;
+
+font-size:14px;
+
+color:#6B7280;
+
+}
+
+/* =======================================
+RESPONSIVE
+======================================= */
+
+@media(max-width:992px){
+
+.hero{
+
+padding:28px;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.glass{
+
+margin-bottom:20px;
+
+}
+
+.feature{
+
+margin-bottom:20px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+padding:22px;
+
+}
+
+.hero h1{
+
+font-size:28px;
+
+}
+
+.stButton>button{
+
+font-size:15px;
+
+}
+
+[data-testid="metric-container"]{
+
+margin-bottom:15px;
+
+}
+
+}
+
+/* =======================================
+HOVER EFFECTS
+======================================= */
+
+[data-testid="metric-container"]:hover{
+
+transform:translateY(-5px);
+
+transition:.3s;
+
+box-shadow:0 15px 40px rgba(99,102,241,.18);
+
+}
+
+.stDataFrame{
+
+animation:fadeUp .7s ease;
+
+}
+
+.js-plotly-plot{
+
+animation:fadeUp .8s ease;
+
+}
+
+.glass:hover,
+.feature:hover{
+
+box-shadow:0 18px 45px rgba(99,102,241,.15);
+
+}
