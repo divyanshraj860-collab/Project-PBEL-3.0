@@ -32,49 +32,152 @@ except FileNotFoundError:
     pass
 
 
-# ---------------- HEADER ---------------- #
+# =====================================================
+# HERO
+# =====================================================
 
-st.title("🧠 AI Mental Health Assessment")
+left, right = st.columns([1.8, 1])
 
-st.write(
-    "Describe how you are feeling today. "
-    "Our Machine Learning model will analyze your text and estimate the most likely mental health condition."
-)
+with left:
 
-st.divider()
+    st.markdown("""
+<div class="hero">
+
+<h1>🧠 AI Mental Health Assessment</h1>
+
+<h3 style="color:white;font-weight:500;">
+Understand your emotional well-being with Artificial Intelligence
+</h3>
+
+<p>
+
+Share your thoughts naturally.
+
+Our Machine Learning model analyzes your text and predicts the most likely mental health condition within seconds.
+
+Receive confidence scores, personalized recommendations, interactive visualizations, and a downloadable professional report.
+
+</p>
+
+</div>
+""", unsafe_allow_html=True)
+
+with right:
+
+    st.markdown("""
+<div class="glass">
+
+### 🚀 Assessment Includes
+
+✅ AI Prediction
+
+✅ Confidence Score
+
+✅ Probability Analysis
+
+✅ Personalized Suggestions
+
+✅ PDF Report
+
+</div>
+""", unsafe_allow_html=True)
+
+st.write("")
 
 
-# ---------------- MODEL INFO ---------------- #
+# =====================================================
+# MODEL OVERVIEW
+# =====================================================
+
+st.markdown("## 📊 Model Overview")
 
 c1, c2, c3 = st.columns(3)
 
-c1.metric("Model", "Linear SVM")
-c2.metric("Accuracy", "78.26%")
-c3.metric("Prediction Type", "Text Classification")
+with c1:
+    st.markdown("""
+<div class="glass" style="text-align:center; padding:20px;">
 
-st.divider()
+<h2>🤖</h2>
+
+<h3>Linear SVM</h3>
+
+<p>Best Performing Model</p>
+
+</div>
+""", unsafe_allow_html=True)
+
+with c2:
+    st.markdown("""
+<div class="glass" style="text-align:center; padding:20px;">
+
+<h2>🎯</h2>
+
+<h3>78.26%</h3>
+
+<p>Prediction Accuracy</p>
+
+</div>
+""", unsafe_allow_html=True)
+
+with c3:
+    st.markdown("""
+<div class="glass" style="text-align:center; padding:20px;">
+
+<h2>⚡</h2>
+
+<h3>Real-Time</h3>
+
+<p>Instant Analysis</p>
+
+</div>
+""", unsafe_allow_html=True)
+
+st.write("")
 
 
-# ---------------- INPUT ---------------- #
+# =====================================================
+# INPUT SECTION
+# =====================================================
+
+st.markdown("## ✍️ Share Your Thoughts")
+
+st.markdown("""
+<div class="glass">
+
+Take a moment to describe how you've been feeling recently.
+
+You can mention your emotions, sleep, stress, relationships, work, studies, or anything else affecting your mental well-being. The more detail you provide, the more meaningful the AI assessment can be.
+
+</div>
+""", unsafe_allow_html=True)
 
 statement = st.text_area(
     "Describe your feelings",
-    height=220,
+    label_visibility="collapsed",
+    height=260,
     placeholder="""
 Example:
 
-I feel anxious all the time.
-I don't enjoy anything anymore.
-I can't sleep.
-I feel lonely and hopeless.
+• I feel anxious most of the day.
+• I have trouble sleeping at night.
+• I don't enjoy activities like I used to.
+• I often feel lonely or overwhelmed.
+
+Write naturally in your own words...
 """
 )
 
-analyze = st.button(
-    "🚀 Analyze",
-    width="stretch"
-)
+st.write("")
 
+left, center, right = st.columns([1, 2, 1])
+
+with center:
+    analyze = st.button(
+        "🚀 Analyze My Mental Health",
+        width="stretch"
+    )
+
+st.write("")
 
 # ---------------- ANALYSIS ---------------- #
 
@@ -117,23 +220,52 @@ if "prediction" in st.session_state:
 
     st.divider()
 
-    st.header("Prediction Result")
+    st.markdown("# 🧠 Assessment Result")
 
-    if prediction.lower() == "depression":
-        st.error(f"Prediction: {prediction}")
-    elif prediction.lower() == "anxiety":
-        st.warning(f"Prediction: {prediction}")
-    else:
-        st.success(f"Prediction: {prediction}")
+    result_left, result_right = st.columns([2, 1])
 
-    st.metric(
-        "Confidence",
-        f"{confidence:.2f}%"
-    )
+    with result_left:
 
-    st.progress(confidence / 100)
+        st.markdown("""
+<div class="glass">
 
-    st.subheader("Prediction Probabilities")
+<h2>Prediction</h2>
+
+</div>
+""", unsafe_allow_html=True)
+
+        if prediction.lower() == "depression":
+            st.error(f"🔴 {prediction}")
+
+        elif prediction.lower() == "anxiety":
+            st.warning(f"🟡 {prediction}")
+
+        elif prediction.lower() == "suicidal":
+            st.error(f"🚨 {prediction}")
+
+        else:
+            st.success(f"🟢 {prediction}")
+
+    with result_right:
+
+        st.markdown("""
+<div class="glass">
+
+<h2 style="text-align:center;">Confidence</h2>
+
+</div>
+""", unsafe_allow_html=True)
+
+        st.metric(
+            "",
+            f"{confidence:.2f}%"
+        )
+
+        st.progress(confidence / 100)
+
+    st.write("")
+
+    st.markdown("## 📊 Prediction Probabilities")
 
     df = pd.DataFrame({
         "Condition": classes,
@@ -145,17 +277,28 @@ if "prediction" in st.session_state:
         x="Condition",
         y="Probability",
         color="Probability",
-        text="Probability"
+        text="Probability",
+        title="AI Confidence Across Mental Health Conditions"
     )
 
     fig.update_traces(
-        texttemplate="%{text:.2f}"
+        texttemplate="%{text:.2f}",
+        textposition="outside"
+    )
+
+    fig.update_layout(
+        xaxis_title="Condition",
+        yaxis_title="Probability (%)",
+        height=500,
+        showlegend=False,
+        template="plotly_white"
     )
 
     st.plotly_chart(
         fig,
         width="stretch"
     )
+
     st.divider()
 
     # ---------------- RISK LEVEL ---------------- #

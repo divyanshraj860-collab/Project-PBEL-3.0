@@ -26,24 +26,38 @@ def load_css():
 
 load_css()
 
-# -------------------------
-# HERO
-# -------------------------
+# =====================================================
+# HERO SECTION
+# =====================================================
 
-st.markdown("""
+hero_left, hero_right = st.columns([1.9,1])
+
+with hero_left:
+
+    st.markdown("""
 <div class="hero">
 
-<h1>🧠 MindCare AI</h1>
+<h1>
+🧠 MindCare AI
+</h1>
+
+<h3 style="color:white;font-weight:500;margin-top:-8px;">
+Your Personal AI Mental Wellness Assistant
+</h3>
 
 <p>
 
-AI-powered Mental Health Assessment Platform
+Leverage the power of
+<b>Artificial Intelligence</b>,
+<b>Machine Learning</b>
+and
+<b>Natural Language Processing</b>
+to understand your emotional well-being.
 
-Using Machine Learning + NLP to provide
-fast mental health screening,
-professional reports,
-analytics,
-and personalized recommendations.
+Receive instant assessments,
+download professional reports,
+track previous assessments,
+and visualize your mental health journey.
 
 </p>
 
@@ -51,197 +65,380 @@ and personalized recommendations.
 
 """, unsafe_allow_html=True)
 
+    btn1,btn2=st.columns(2)
+
+    with btn1:
+
+        if st.button(
+            "🚀 Start Assessment",
+            width="stretch"
+        ):
+            st.switch_page("pages/Assessment.py")
+
+    with btn2:
+
+        if st.button(
+            "📊 Dashboard",
+            width="stretch"
+        ):
+            st.switch_page("pages/Dashboard.py")
+
+with hero_right:
+
+    st.markdown("""
+
+<div class="glass">
+
+<h2 style="text-align:center;">
+✨ Highlights
+</h2>
+
+<br>
+
+### 🤖 AI Powered Analysis
+
+Advanced NLP & Machine Learning
+
+---
+
+### 📈 Smart Analytics
+
+Interactive Dashboard
+
+---
+
+### 📄 PDF Reports
+
+Professional Downloads
+
+---
+
+### 🔒 Secure History
+
+Previous Assessments
+
+---
+
+### ⚡ Instant Results
+
+Within Seconds
+
+</div>
+
+""", unsafe_allow_html=True)
+
 st.write("")
+st.write("")
+st.divider()
+# =====================================================
+# PLATFORM STATS
+# =====================================================
 
-# -------------------------
-# STATS
-# -------------------------
+st.markdown("## 📊 Platform Overview")
 
-c1,c2,c3,c4 = st.columns(4)
+c1, c2, c3, c4 = st.columns(4)
 
 with c1:
+    st.markdown("""
+<div class="glass" style="text-align:center;">
 
-    st.metric(
-        "🎯 Accuracy",
-        "78.26%"
-    )
+<h1>🎯</h1>
+
+<h2>78.26%</h2>
+
+Accuracy
+
+</div>
+""", unsafe_allow_html=True)
 
 with c2:
+    st.markdown("""
+<div class="glass" style="text-align:center;">
 
-    st.metric(
-        "🤖 AI Model",
-        "Linear SVM"
-    )
+<h1>🤖</h1>
+
+<h2>Linear SVM</h2>
+
+Best ML Model
+
+</div>
+""", unsafe_allow_html=True)
 
 with c3:
+    st.markdown("""
+<div class="glass" style="text-align:center;">
 
-    st.metric(
-        "🧠 Conditions",
-        "7"
-    )
+<h1>🧠</h1>
+
+<h2>7</h2>
+
+Mental Conditions
+
+</div>
+""", unsafe_allow_html=True)
 
 with c4:
+    st.markdown("""
+<div class="glass" style="text-align:center;">
 
-    st.metric(
-        "📄 Reports",
-        "Unlimited"
-    )
+<h1>📄</h1>
 
-st.divider()
+<h2>Unlimited</h2>
 
-# -------------------------
+PDF Reports
+
+</div>
+""", unsafe_allow_html=True)
+
+st.write("")
+st.write("")
+# =====================================================
 # FEATURES
-# -------------------------
+# =====================================================
 
-st.header("✨ Features")
+st.markdown("# ✨ Why MindCare AI?")
 
-col1,col2,col3 = st.columns(3)
+st.caption(
+    "Designed to provide a fast, intelligent and user-friendly mental wellness assessment experience."
+)
+
+st.write("")
+
+col1, col2, col3 = st.columns(3)
 
 with col1:
 
     st.markdown("""
 <div class="glass">
 
-## 🧠 AI Assessment
+<h2>🧠 AI Assessment</h2>
 
-Write how you feel.
+<hr>
 
-Our AI predicts possible
-mental health conditions
-within seconds.
+✔ Advanced NLP
+
+✔ Machine Learning
+
+✔ Instant Prediction
+
+✔ Confidence Analysis
+
+✔ Seven Mental Health Categories
 
 </div>
-""",unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 with col2:
 
     st.markdown("""
 <div class="glass">
 
-## 📊 Analytics
+<h2>📈 Smart Dashboard</h2>
 
-Interactive dashboard
+<hr>
 
-Charts
+✔ Assessment History
 
-Prediction history
+✔ Interactive Analytics
 
-Confidence analysis
+✔ Confidence Tracking
+
+✔ Visualization
+
+✔ Easy Navigation
 
 </div>
-""",unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 with col3:
 
     st.markdown("""
 <div class="glass">
 
-## 📄 Reports
+<h2>📄 Professional Reports</h2>
 
-Generate beautiful
+<hr>
 
-PDF Reports
+✔ PDF Generation
 
-Download anytime
+✔ Download Anytime
+
+✔ Clean Layout
+
+✔ Printable
+
+✔ Secure Storage
 
 </div>
-""",unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 st.write("")
 st.write("")
 
-# -------------------------
+# =====================================================
 # HOW IT WORKS
-# -------------------------
+# =====================================================
 
-st.header("⚙️ How It Works")
+st.markdown("# ⚙️ How MindCare AI Works")
 
-steps = st.columns(7)
+st.caption(
+    "From your thoughts to AI-powered insights in four simple steps."
+)
 
-titles = [
-    "Write",
-    "Analyze",
-    "Predict",
-    "Confidence",
-    "Recommendation",
-    "Report",
-    "History"
-]
+st.write("")
 
-icons = [
-    "✍️",
-    "🧠",
-    "🎯",
-    "📈",
-    "💡",
-    "📄",
-    "📊"
-]
+step1, step2, step3, step4 = st.columns(4)
 
-for i,col in enumerate(steps):
+with step1:
+    st.markdown("""
+<div class="glass" style="text-align:center;height:250px;">
 
-    with col:
+<h1>✍️</h1>
 
-        st.markdown(f"""
-<div class="feature">
+<h3>Describe</h3>
 
-# {icons[i]}
+Tell us how you are feeling.
 
-### {titles[i]}
+Be as natural as possible.
 
 </div>
+""", unsafe_allow_html=True)
 
-""",unsafe_allow_html=True)
+with step2:
+    st.markdown("""
+<div class="glass" style="text-align:center;height:250px;">
 
-st.divider()
+<h1>🤖</h1>
 
-# -------------------------
-# MODEL
-# -------------------------
-
-st.header("🤖 AI Model")
-
-st.info("""
-
-**Best Performing Model**
-
-Linear Support Vector Machine (Linear SVM)
-
-Accuracy : **78.26%**
-
-Dataset :
-
-Mental Health Combined Dataset
-
-TF-IDF Vectorization
+<h3>Analyze</h3>
 
 Natural Language Processing
 
-""")
+extracts important patterns.
 
+</div>
+""", unsafe_allow_html=True)
+
+with step3:
+    st.markdown("""
+<div class="glass" style="text-align:center;height:250px;">
+
+<h1>🧠</h1>
+
+<h3>Predict</h3>
+
+Our Machine Learning model predicts the
+most likely condition.
+
+</div>
+""", unsafe_allow_html=True)
+
+with step4:
+    st.markdown("""
+<div class="glass" style="text-align:center;height:250px;">
+
+<h1>📄</h1>
+
+<h3>Report</h3>
+
+Download your professional report and
+view your assessment history.
+
+</div>
+""", unsafe_allow_html=True)
+
+st.write("")
 st.divider()
 
-# -------------------------
+# =====================================================
+# TECHNOLOGY
+# =====================================================
+
+st.markdown("# 🚀 Technology Stack")
+
+t1, t2 = st.columns([1.2,1])
+
+with t1:
+
+    st.markdown("""
+<div class="glass">
+
+## 🧠 Artificial Intelligence
+
+This project combines
+
+• Machine Learning
+
+• Natural Language Processing
+
+• TF-IDF Vectorization
+
+• Linear Support Vector Machine
+
+to deliver fast and reliable
+mental health screening.
+
+</div>
+""", unsafe_allow_html=True)
+
+with t2:
+
+    st.markdown("""
+<div class="glass">
+
+## 📊 Performance
+
+🎯 Accuracy : 78.26%
+
+🤖 Best Model : Linear SVM
+
+📄 Reports : Unlimited
+
+⚡ Prediction : Real Time
+
+🔒 Privacy Focused
+
+</div>
+""", unsafe_allow_html=True)
+
+st.write("")
+st.divider()
+
+# =====================================================
 # DISCLAIMER
-# -------------------------
+# =====================================================
+
+st.markdown("# ⚠️ Important Notice")
 
 st.warning("""
 
-### ⚠️ Disclaimer
+MindCare AI is intended for **educational purposes only**.
 
-MindCare AI is an educational project.
+It does **not** replace professional psychological
+or medical diagnosis.
 
-It is **NOT**
-
-a medical diagnosis tool.
-
-Always consult a qualified
-mental health professional.
+If you are experiencing emotional distress,
+please consult a qualified mental health professional.
 
 """)
 
 st.write("")
 
-st.caption(
-    "Made by Divyansh Raj | Scikit-Learn | Plotly"
+st.markdown("---")
+
+st.markdown(
+"""
+<div style="text-align:center;padding:25px;">
+
+<h3>MindCare AI</h3>
+
+AI Powered Mental Health Assessment Platform
+
+Made by
+
+<b>Divyansh Raj • All Rights Reserved • 2026 • email: divyanshraj860@gmail.com</b>
+
+</div>
+""",
+unsafe_allow_html=True
 )
